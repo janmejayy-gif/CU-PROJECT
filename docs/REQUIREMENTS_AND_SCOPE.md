@@ -67,18 +67,18 @@ This leads to **over-irrigation** (water waste, energy cost, nutrient leaching, 
 
 ---
 
-## 4. Crop and Geographic Scope — PROPOSED DEFAULTS
+## 4. Crop and Geographic Scope — CONFIRMED MVP SCOPE
 
-> **⚠️ UNRESOLVED — REQUIRES STAKEHOLDER APPROVAL**
+> **✅ CONFIRMED — STAKEHOLDER DECISIONS RECORDED**
 
-| Dimension | Proposed Default | Rationale | Decision Needed |
-|-----------|------------------|-----------|-----------------|
-| **Primary Crop (MVP)** | **Rice (Kharif season)** or **Wheat (Rabi season)** | High acreage, well-studied water requirements, representative datasets available | Confirm crop; single crop for MVP |
-| **Primary Region (MVP)** | **Maharashtra (Vidarbha/Marathwada)** or **Punjab (Rice-Wheat belt)** | Diverse agro-climatic zones, existing weather station coverage, farmer outreach possible | Confirm state/district |
-| **Supported Crops (Post-MVP)** | Cotton, Sugarcane, Maize, Soybean, Pulses | Prioritize by acreage and water sensitivity | Phase 6+ |
-| **Supported Regions (Post-MVP)** | Expand to adjacent states with similar agro-climatic zones | Validate model transferability first | Phase 7+ |
+| Dimension | Confirmed Value | Rationale | Status |
+|-----------|-----------------|-----------|--------|
+| **Primary Crop (MVP)** | **Rice (Dhaan) — Kharif season** | High acreage in target region, well-studied water requirements, representative datasets available | **Confirmed** |
+| **Primary Region (MVP)** | **Uttar Pradesh, India** | Major rice-producing state, diverse agro-climatic zones, existing weather station coverage, farmer outreach feasible | **Confirmed** |
+| **Supported Crops (Post-MVP)** | Cotton, Sugarcane, Maize, Soybean, Pulses, Wheat | Prioritize by acreage and water sensitivity in UP and adjacent states | Phase 6+ |
+| **Supported Regions (Post-MVP)** | Expand to adjacent states (Bihar, Madhya Pradesh, Punjab) with similar agro-climatic zones | Validate model transferability first | Phase 7+ |
 
-**Decision Required:** Stakeholder to confirm **single crop + single region** for MVP pilot. Document choice here once approved.
+**Note:** Single crop (Rice) + single region (Uttar Pradesh) confirmed for MVP pilot. All Phase 2+ implementation should target this scope.
 
 ---
 
@@ -272,17 +272,17 @@ This leads to **over-irrigation** (water waste, energy cost, nutrient leaching, 
 
 ### Open Stakeholder Questions (Require Approval)
 
-| # | Question | Proposed Default | Decision Owner |
-|---|----------|------------------|----------------|
-| Q1 | **Primary crop for MVP?** | Rice (Kharif) | Product / Agronomy |
-| Q2 | **Primary region for MVP?** | Maharashtra (Vidarbha) | Product / Field Team |
-| Q3 | **Weather API provider?** | IMD (free) + OpenWeather (backup) | Engineering |
-| Q4 | **Water quantity formula validation?** | FAO-56 crop coefficient × ET₀ × area / efficiency | Agronomy Expert |
-| Q5 | **JWT access token TTL?** | 15 min (access) / 7 days (refresh) | Security |
-| Q6 | **Password policy?** | Min 8 chars, 1 upper, 1 lower, 1 digit, 1 special | Security |
-| Q7 | **Rate limiting policy?** | 100 req/min per user (auth), 30 req/min (recommendation) | Engineering |
-| Q8 | **Language support priority?** | English + Hindi | Product |
-| Q9 | **Pilot farmer count / duration?** | 50 farmers / 8 weeks | Product / Field |
+> **✅ Q1 and Q2 are now CONFIRMED (see Section 4 above)**
+
+| # | Question | Proposed Default | Decision Owner | Status |
+|---|----------|------------------|----------------|--------|
+| Q3 | **Weather API provider?** | IMD (free) + OpenWeather (backup) | Engineering | **Unresolved** |
+| Q4 | **Water quantity formula validation?** | FAO-56 crop coefficient × ET₀ × area / efficiency | Agronomy Expert | **Unresolved** |
+| Q5 | **JWT access token TTL?** | 15 min (access) / 7 days (refresh) | Security | **Partially resolved** — RS256 algorithm confirmed; TTL values proposed |
+| Q6 | **Password policy?** | Min 8 chars, 1 upper, 1 lower, 1 digit, 1 special | Security | **Partially resolved** — Min 8 chars confirmed; complexity rules proposed |
+| Q7 | **Rate limiting policy?** | 100 req/min per user (auth), 30 req/min (recommendation) | Engineering | **Unresolved** |
+| Q8 | **Language support priority?** | English + Hindi | Product | **Unresolved** |
+| Q9 | **Pilot farmer count / duration?** | 50 farmers / 8 weeks | Product / Field | **Unresolved** |
 
 ---
 

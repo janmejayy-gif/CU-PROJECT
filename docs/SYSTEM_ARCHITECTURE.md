@@ -436,13 +436,15 @@ flowchart TB
 
 ## 10. Unresolved Approvals Required
 
-| # | Decision | Impact | Owner | Deadline |
-|---|----------|--------|-------|----------|
-| 1 | Weather API provider & credentials | Weather service implementation | Engineering | Phase 3 |
-| 2 | ML service deployment topology (sidecar vs separate) | Network, scaling, latency | DevOps | Phase 4 |
-| 3 | Decision engine rule set (initial version) | Recommendation logic | Agronomy + Engineering | Phase 5 |
-| 4 | JWT key management (rotation, RS256 vs HS256) | Security, operations | Security | Phase 2 |
-| 5 | Rate limiting tiers (free vs paid?) | API gateway config | Product | Phase 7 |
+> **✅ Database, crop, and region are confirmed. JWT algorithm (RS256) confirmed. Password minimum length (8 chars) confirmed.**
+
+| # | Decision | Impact | Owner | Deadline | Status |
+|---|----------|--------|-------|----------|--------|
+| 1 | Weather API provider & credentials | Weather service implementation | Engineering | Phase 3 | **Unresolved** |
+| 2 | ML service deployment topology (sidecar vs separate) | Network, scaling, latency | DevOps | Phase 4 | **Unresolved** |
+| 3 | Decision engine rule set (initial version) | Recommendation logic | Agronomy + Engineering | Phase 5 | **Unresolved** |
+| 4 | JWT key management (rotation, RS256 vs HS256) | Security, operations | Security | Phase 2 | **Partially resolved** — RS256 confirmed; key generation, storage, rotation procedures pending |
+| 5 | Rate limiting tiers (free vs paid?) | API gateway config | Product | Phase 7 | **Unresolved** |
 
 ---
 

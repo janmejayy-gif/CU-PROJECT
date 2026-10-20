@@ -72,16 +72,16 @@ Each criterion has a unique ID, is testable, and traces to requirements (REQUIRE
 
 ### 2.1 Authentication & Authorization
 
-| ID | Requirement | Detail | Verification |
-|----|-------------|--------|--------------|
-| **SEC-01** | JWT Algorithm | RS256 (asymmetric); keys rotated quarterly | Key inspection |
-| **SEC-02** | Access Token TTL | 15 minutes (configurable via env) | Token decode + time check |
-| **SEC-03** | Refresh Token | 7 days; rotating (new refresh issued on use); revoked on logout/password change | Flow test |
-| **SEC-04** | Password Hashing | BCrypt cost 12; never logged | Code review + hash inspection |
-| **SEC-05** | Password Policy | Min 8 chars, 1 upper, 1 lower, 1 digit, 1 special; no common passwords (zxcvbn) | Unit test |
-| **SEC-06** | Role-Based Access | `FARMER` (own resources), `ADMIN` (all); farm-scoped authorization | Integration test |
-| **SEC-07** | Token Revocation | Refresh token blacklist (Redis) with TTL = refresh TTL | Integration test |
-| **SEC-08** | Session Invalidation | On password change, logout, admin revoke | Integration test |
+| ID | Requirement | Detail | Verification | Status |
+|----|-------------|--------|--------------|--------|
+| **SEC-01** | JWT Algorithm | RS256 (asymmetric); keys rotated quarterly | Key inspection | **Confirmed** — RS256 algorithm selected |
+| **SEC-02** | Access Token TTL | 15 minutes (configurable via env) | Token decode + time check | Proposed |
+| **SEC-03** | Refresh Token | 7 days; rotating (new refresh issued on use); revoked on logout/password change | Flow test | Proposed |
+| **SEC-04** | Password Hashing | BCrypt cost 12; never logged | Code review + hash inspection | Standard |
+| **SEC-05** | Password Policy | Min 8 chars, 1 upper, 1 lower, 1 digit, 1 special; no common passwords (zxcvbn) | Unit test | **Partially confirmed** — Min 8 chars confirmed; complexity rules proposed |
+| **SEC-06** | Role-Based Access | `FARMER` (own resources), `ADMIN` (all); farm-scoped authorization | Integration test | Standard |
+| **SEC-07** | Token Revocation | Refresh token blacklist (Redis) with TTL = refresh TTL | Integration test | Standard |
+| **SEC-08** | Session Invalidation | On password change, logout, admin revoke | Integration test | Standard |
 
 ### 2.2 Input Validation & Injection Prevention
 
@@ -307,17 +307,17 @@ Each criterion has a unique ID, is testable, and traces to requirements (REQUIRE
 
 ## 7. Unresolved Approvals Required Before Phase 2
 
-| # | Decision | Document Section | Owner |
-|---|----------|------------------|-------|
-| 1 | Primary crop for MVP (Rice/Wheat/Other) | Requirements §4 | Product/Agronomy |
-| 2 | Primary region for MVP (Maharashtra/Punjab/Other) | Requirements §4 | Product/Field |
-| 3 | Weather API provider & credentials | Architecture §7.1, Schema §2.4 | Engineering |
-| 4 | JWT key management (RS256 key generation, rotation) | Security §2.1 | Security |
-| 5 | Password policy exact rules | Security §2.1 | Security |
-| 6 | Rate limiting tiers (free vs paid) | Security §2.3 | Product |
-| 7 | Language support priority (English + Hindi + ?) | Requirements §10 | Product |
-| 8 | Water quantity formula validation (FAO-56 + expert) | Requirements §6.3 | Agronomy |
-| 9 | Pilot scope (farmers, duration, success metrics) | DoD Phase 7 | Product/Field |
+> **✅ Items 1 and 2 (crop, region) are CONFIRMED. Item 4 (JWT algorithm RS256) confirmed. Item 5 (password min 8 chars) confirmed. Remaining details for items 4 and 5 still pending.**
+
+| # | Decision | Document Section | Owner | Status |
+|---|----------|------------------|-------|--------|
+| 1 | Weather API provider & credentials | Architecture §7.1, Schema §2.4 | Engineering | **Unresolved** |
+| 2 | JWT key management (RS256 key generation, rotation) | Security §2.1 | Security | **Partially resolved** — RS256 confirmed; key generation, storage, rotation procedures pending |
+| 3 | Password policy exact rules | Security §2.1 | Security | **Partially resolved** — Min 8 chars confirmed; complexity rules (upper, lower, digit, special, no common passwords) proposed |
+| 4 | Rate limiting tiers (free vs paid) | Security §2.3 | Product | **Unresolved** |
+| 5 | Language support priority (English + Hindi + ?) | Requirements §10 | Product | **Unresolved** |
+| 6 | Water quantity formula validation (FAO-56 + expert) | Requirements §6.3 | Agronomy | **Unresolved** |
+| 7 | Pilot scope (farmers, duration, success metrics) | DoD Phase 7 | Product/Field | **Unresolved** |
 
 ---
 
