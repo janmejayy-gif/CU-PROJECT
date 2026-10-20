@@ -1,0 +1,110 @@
+# ==========================================
+# JALRAKSHAK — .gitignore
+# ==========================================
+
+# ----- Node.js / Frontend (React + Vite) -----
+node_modules/
+dist/
+build/
+.env
+.env.local
+.env.*.local
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+.vite/
+*.local
+
+# ----- Java / Spring Boot -----
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+.reclipse/
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ----- Python / ML Service -----
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+.uv/
+*.so
+*.pyd
+
+# ----- MongoDB / Database -----
+*.dump
+*.archive
+mongodump*/
+
+# ----- IDE / Editor -----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-workspace
+*.sublime-project
+
+# ----- OS / System -----
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ----- Build / Generated Artifacts -----
+*.tar.gz
+*.zip
+*.rar
+out/
+output/
+generated/
+
+# ----- Logs -----
+logs/
+*.log
+
+# ----- Local Config (never commit secrets) -----
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+*.crt
+
+# ----- Testing / Coverage -----
+coverage/
+.nyc_output/
+
+# ----- Docker -----
+.docker/
+docker-compose.override.yml
