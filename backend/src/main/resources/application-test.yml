@@ -4,8 +4,6 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/jalrakshak_test
-      database: jalrakshak_test
       auto-index-creation: true
 
 # Test-specific logging

@@ -5,6 +5,11 @@ spring:
   application:
     name: jalrakshak-backend
 
+  # MongoDB configuration
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/jalrakshak}
+
   # Jackson configuration
   jackson:
     serialization:
