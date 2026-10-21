@@ -1,0 +1,76 @@
+# JALRAKSHAK Backend Configuration
+# Base configuration shared across all profiles
+
+spring:
+  application:
+    name: jalrakshak-backend
+
+  # Jackson configuration
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    property-naming-strategy: SNAKE_CASE
+
+# Server configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1
+
+# Management / Actuator endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  health:
+    mongo:
+      enabled: true
+    db:
+      enabled: true
+    diskspace:
+      enabled: true
+
+# Logging configuration
+logging:
+  pattern:
+    console: "%clr(%d{ISO8601}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+  level:
+    root: INFO
+    com.jalrakshak: DEBUG
+    org.springframework.data.mongodb: DEBUG
+    org.springframework.security: DEBUG
+  format:
+    console: json
+
+# SpringDoc OpenAPI configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+  packages-to-scan: com.jalrakshak.controller
+
+# Application-specific properties
+jalrakshak:
+  jwt:
+    issuer: jalrakshak
+    audience: jalrakshak-frontend
+    access-token-ttl-minutes: 15
+    refresh-token-ttl-days: 7
+  cors:
+    allowed-origins: http://localhost:5173
+  rate-limit:
+    auth-requests-per-minute: 10
+    api-requests-per-minute: 100
+    recommendation-requests-per-minute: 30

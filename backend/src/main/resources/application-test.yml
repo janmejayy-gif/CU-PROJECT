@@ -1,0 +1,34 @@
+# JALRAKSHAK Backend - Test Profile
+# Used for integration tests with Testcontainers
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/jalrakshak_test
+      database: jalrakshak_test
+      auto-index-creation: true
+
+# Test-specific logging
+logging:
+  level:
+    root: WARN
+    com.jalrakshak: DEBUG
+    org.springframework.data.mongodb: DEBUG
+    org.springframework.security: DEBUG
+
+# Disable actuators for tests
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+# Test-specific CORS
+jalrakshak:
+  cors:
+    allowed-origins: http://localhost:5173
+
+# Test JWT settings (shorter TTL for faster tests)
+jwt:
+  access-token-ttl-minutes: 1
+  refresh-token-ttl-days: 1

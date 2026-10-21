@@ -1,0 +1,31 @@
+# JALRAKSHAK Backend - Development Profile
+# Extends base application.yml
+
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/jalrakshak_dev}
+      database: jalrakshak_dev
+      auto-index-creation: true
+
+# Development-specific logging
+logging:
+  level:
+    root: DEBUG
+    com.jalrakshak: DEBUG
+    org.springframework.data.mongodb: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+
+# Relaxed security for development
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWT_JWK_SET_URI:}
+
+# Development-specific CORS
+jalrakshak:
+  cors:
+    allowed-origins: http://localhost:5173,http://127.0.0.1:5173

@@ -28,7 +28,8 @@ target/
 hs_err_pid*
 .reclipse/
 .mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
+# Maven Wrapper JAR must be committed for reproducible builds
+!.mvn/wrapper/maven-wrapper.jar
 
 # ----- Python / ML Service -----
 __pycache__/
